@@ -1,4 +1,3 @@
-# app/crud/__init__.py
 from .categoria import (
     criar_categoria,
     listar_categorias,
