@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Movimentações de Estoque</h2>
+
+<a href="/movimentacoes/criar" class="btn btn-success mb-3">Nova Movimentação</a>
+
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Data</th>
+            <th>Hora</th>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Tipo</th>
+            <th>Observação</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mov in movimentacoes %}
+        <tr>
+            <td>{{ mov.dt }}</td>
+            <td>{{ mov.hr }}</td>
+            <td>{{ mov.produto.nome }}</td>
+            <td>{{ mov.qtd }}</td>
+            <td>{{ mov.tipo_mov }}</td>
+            <td>{{ mov.obs }}</td>
+            <td>
+                <form action="/movimentacoes/{{ mov.id_est }}/deletar" method="post" onsubmit="return confirm('Deseja excluir esta movimentação?')">
+                    <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

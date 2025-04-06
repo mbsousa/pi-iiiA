@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Nova Categoria{% endblock %}
+
+{% block content %}
+<h2>Criar nova categoria</h2>
+
+<form method="post" action="/categorias/criar">
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" name="nome" id="nome" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="descricao" class="form-label">Descrição</label>
+        <textarea name="descricao" id="descricao" class="form-control" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a href="/categorias" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
