@@ -9,7 +9,7 @@ app = FastAPI()
 def testar_conexao():
     try:
         db = SessionLocal()
-        db.execute(text("SELECT 1"))  # Teste simples de conexão
+        db.execute(text("SELECT 1")) 
         return {"status": "Conexão com o banco de dados bem-sucedida!"}
     except Exception as e:
         return {"erro": str(e)}
