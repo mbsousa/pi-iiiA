@@ -1,5 +1,3 @@
-# routers/mov_estoque.py
-
 from fastapi import APIRouter, Depends, Request, Form
 from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
@@ -37,7 +35,7 @@ def criar_movimentacao(
 ):
     data_convertida = datetime.strptime(dt, "%Y-%m-%d").date()
     hora_convertida = datetime.strptime(hr, "%H:%M").time()
-    tipo_enum = TipoMovEnum(tipo_mov)  # <-- aqui sim
+    tipo_enum = TipoMovEnum(tipo_mov) 
 
     nova_mov = MovEstoqueCreate(
         dt=data_convertida,
